@@ -167,7 +167,7 @@ jupyter nbconvert --to notebook --execute \
 ```
 
 Saved posterior samples are available on Zenodo:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/https:/10.5281/zenodo.22141657.svg)](https://https://doi.org/10.5281/zenodo.22141657)
 
 ---
 
