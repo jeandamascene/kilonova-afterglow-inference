@@ -1,0 +1,27 @@
+skip on
+mark off
+log x on
+log y on
+la pos y 3.5
+la rotate
+time off
+la t Swift/XRT data of GRB 211211A
+la par off
+csize 1.3
+lw 5
+
+la x Time since BAT trigger (s)
+
+la y Count Rate (0.3-10 keV) (s\u-1\d)
+la f cyan: WT settling - blue: WT - red: PC 
+r 33.9798133994313 17713945.60848 0.00068154345 2269.49204308328
+time off
+col 5 on 1
+col 11 on 2
+col 2 on 3
+col 2 on 4
+ma 31 on 4
+mar si 4 on 4
+plot
+hard curve_nosys.ps/CPS
+q

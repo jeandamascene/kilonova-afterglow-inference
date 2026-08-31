@@ -1,0 +1,106 @@
+BINFACT = 1.5
+COUNTS_MIN = 30
+GDMAX = 12
+GDMIN = 0
+HARD1 = 1.51
+HARD2 = 10
+MAXCADENCE = 0.205
+MAXCENTRATE = 1
+MAXEN = 10
+MAXSLEWRATE = 10
+MINCENTCTS = 20
+MINCMIN = 15
+MINEN = 0.3
+MINEVT = 15
+RATEFACT = 10
+SOFT1 = 0.3
+SOFT2 = 1.5
+T0 = 660921027.84
+TIMEDEL = 0.001766
+WTHIRATE = 250
+WTLORATE = 70
+WTPUPRATE = 120
+wtslew called for trigger 01088940, with pos 212.2934103679, 27.8877130888 and T0: 660921027.84
+START WAS 
+
+Event list: sw01088940000xwtw2st_cl.evt.gz
+Calling extractor to filter first snaphot: 660921027.84 - 660922027.84 (0 - 1000) s
+Roll angle is 133.86415419347
+TIME RANGE: 660921097.054894 - 660921106.600115 (69.2148939371109 - 78.7601149082184)
+LIST of teldef files:
+  /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210101v001.teldef
+  /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210701v001.teldef
+SELECTED TELDEF: /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210701v001.teldef
+ATTFILE: sw01088940000pat.fits.gz
+HDFILE: sw01088940000xhd.hk.gz
+
+Got ra/dec pnt of 212.254771002298,27.8868629609137 from sw01088940000pat.fits.gz
+This converts (212.2934103679,27.8877130888) to sky pixels (448.3443,501.8065)
+
+Filtered on time as firstvalid is 660921092.05489
+Do a pileup check
+CHECKING FOR PILEUP: RATE: 120
+CHECKPUP: 9 bins, 9 above 120, 9 above 250, 0 below 70  (ex=0)
+Done pileup check
+The data are piled up, so get time-dependent position
+Going to call stmode centroid
+
+Called
+stmode_centroid.pl sw01088940000xwtw2st_cl.evt.gz sw01088940000xhd.hk.gz sw01088940000pat.fits.gz /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210701v001.teldef 660921027.84 > /dev/null 2>&1
+
+Cadence is 0.0578230619430542 (from 660921097.440083-660921097.38226)
+Saved 55 centroids for interpolation
+Calling wt_syserr with time-dependent positions
+Comm: wt_syserr -t 0 -P pos_time.dat -xaf -A  /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210701v001.teldef sw01088940000pat.fits.gz 660921092.054894 660921111.600115 philx2.out 0.5
+
+
+Working out exclusion radius to correct for pile up
+OK, not removing piled up events here, will do it later on
+But need to work out exrad
+Manually creating pup-check lc with exl=4
+CHECKPUP: 10 bins, 10 above 120, 10 above 250, 0 below 70  (ex=4)
+Manually creating pup-check lc with exl=8
+CHECKPUP: 10 bins, 10 above 120, 10 above 250, 0 below 70  (ex=8)
+Manually creating pup-check lc with exl=12
+CHECKPUP: 10 bins, 10 above 120, 7 above 250, 0 below 70  (ex=12)
+Manually creating pup-check lc with exl=16
+CHECKPUP: 10 bins, 10 above 120, 2 above 250, 0 below 70  (ex=16)
+Manually creating pup-check lc with exl=18
+CHECKPUP: 10 bins, 10 above 120, 0 above 250, 0 below 70  (ex=18)
+Manually creating pup-check lc with exl=20
+CHECKPUP: 10 bins, 10 above 120, 0 above 250, 0 below 70  (ex=20)
+Manually creating pup-check lc with exl=22
+CHECKPUP: 10 bins, 10 above 120, 0 above 250, 0 below 70  (ex=22)
+Manually creating pup-check lc with exl=24
+CHECKPUP: 10 bins, 8 above 120, 0 above 250, 0 below 70  (ex=24)
+Manually creating pup-check lc with exl=26
+CHECKPUP: 10 bins, 6 above 120, 0 above 250, 0 below 70  (ex=26)
+Manually creating pup-check lc with exl=28
+CHECKPUP: 10 bins, 4 above 120, 0 above 250, 0 below 70  (ex=28)
+Manually creating pup-check lc with exl=30
+CHECKPUP: 10 bins, 4 above 120, 0 above 250, 0 below 70  (ex=30)
+Manually creating pup-check lc with exl=32
+CHECKPUP: 10 bins, 3 above 120, 0 above 250, 0 below 70  (ex=32)
+Manually creating pup-check lc with exl=34
+CHECKPUP: 10 bins, 1 above 120, 0 above 250, 0 below 70  (ex=34)
+Recalculate systematic error with -p 17 for pileup
+Calling wt_syserr with time-dependent positions
+Comm: wt_syserr -t 0 -p 17 -P pos_time.dat -xaf -A  /usr/local/swift/caldb/data/swift/xrt/bcf/teldef/swx20210701v001.teldef sw01088940000pat.fits.gz 660921092.054894 660921111.600115 philx3.out 0.5
+
+Call ftlist to get the events from event list filtered_2.evt.gz
+Got 7124 events before binning
+Call getbadpix()
+The number of events it 7124, for ontime; 9.54522132873535 s and mean rate thus rate=746.342044322597
+BIN SIZE: 67.5
+
+EXL: 17 pixels
+
+
+GOTCENTROID= 1
+
+EXL=17
+Created events.txt
+The bg to source ratio is 0.256064690026954
+Calling binwtslew.pl  start=69.2148939371109 T0=660921027.84 BINFACT=1.5 COUNTS_MIN=30 GDMAX=12 GDMIN=0 HARD1=1.51 HARD2=10 MAXCADENCE=0.205 MAXCENTRATE=1 MAXEN=10 MAXSLEWRATE=10 MINCENTCTS=20 MINCMIN=15 MINEN=0.3 MINEVT=15 RATEFACT=10 SOFT1=0.3 SOFT2=1.5 T0=660921027.84 TIMEDEL=0.001766 WTHIRATE=250 WTLORATE=70 WTPUPRATE=120 
+Returned 0
+Complete OK

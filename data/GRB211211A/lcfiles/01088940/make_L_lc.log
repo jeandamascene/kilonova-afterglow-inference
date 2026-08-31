@@ -1,0 +1,25 @@
+16:39:53.463 UKSSDC::Logging::CREATE_LOG:  line  105  INFO   >>  /swift/srv/autoproc/bin/make_L_lc.pl called at `2025 Aug 12 at 15:39:53 UT` on `fireball.star.le.ac.uk`
+16:39:53.471          main:::  line  243  INFO   >>  Called at 2025 Aug 12 at 15:39:53 UT, with args --ignore-na :: -R :: 01088940, host fireball.star.le.ac.uk
+16:39:53.491          main:::  line  256  INFO   >>  Looking for a redshift
+16:39:53.493          main:::  line  313  INFO   >>  Got `pc` mode data: gamma = `1.492118226`, unabs = `2.97952202409523e-11`
+16:39:53.502          main:::  line  333  INFO   >>  File count rate is `0.2959257741`
+16:39:53.503          main:::  line  347  INFO   >>  CF is `2.25393240535258`
+16:39:53.503          main:::  line  362  INFO   >>  For mode `pc` got counts to unabs flux ECF = `4.46707166710467e-11` erg/cm^2/ct ( = 2.97952202409523e-11 / 0.666996691823037
+16:39:53.503          main:::  line  368  INFO   >>  The k-correction is `0.96334453609866`
+16:39:53.519          main:::  line  396  INFO   >>  Got luminosity distance: `1.11311e+27` cm
+16:39:53.523          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTCURVE.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_WTCURVE.qdp`
+16:39:53.531          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTCURVE_incbad.qdp`, skipping.
+16:39:53.531          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTCURVENOSYS.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_WTCURVENOSYS.qdp`
+16:39:53.540          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTCURVENOSYS_incbad.qdp`, skipping.
+16:39:53.540          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTUL.qdp`, skipping.
+16:39:53.541          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTUL_incbad.qdp`, skipping.
+16:39:53.541          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTULNOSYS.qdp`, skipping.
+16:39:53.542          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/WTULNOSYS_incbad.qdp`, skipping.
+16:39:53.542          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCCURVE.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCCURVE.qdp`
+16:39:53.547          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCCURVE_incbad.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCCURVE_incbad.qdp`
+16:39:53.553          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCCURVENOSYS.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCCURVENOSYS.qdp`
+16:39:53.558          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCCURVENOSYS_incbad.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCCURVENOSYS_incbad.qdp`
+16:39:53.562          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCUL.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCUL.qdp`
+16:39:53.566          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCUL_incbad.qdp`, skipping.
+16:39:53.566          main:::  line  456  INFO   >>  Working on `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCULNOSYS.qdp`, writing `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCULNOSYS.qdp`
+16:39:53.570          main:::  line  451  WARN   >>  Cannot find file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/PCULNOSYS_incbad.qdp`, skipping.

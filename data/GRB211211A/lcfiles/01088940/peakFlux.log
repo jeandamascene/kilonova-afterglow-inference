@@ -1,0 +1,10 @@
+16:39:54.077 UKSSDC::Logging::CREATE_LOG:  line  105  INFO   >>  /swift/srv/autoproc/bin/peakFlux.pl called at `2025 Aug 12 at 15:39:54 UT` on `fireball.star.le.ac.uk`
+16:39:54.084          main:::  line  209  INFO   >>  Called at 2025 Aug 12 at 15:39:54 UT, with args -R :: 01088940, host fireball.star.le.ac.uk
+16:39:54.106          main:::  line  240  INFO   >>  Reading flux file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/flux_incbad.qdp`
+16:39:54.108  main::findPeak:  line  145  INFO   >>  Got maximum after `3` bins: 6.59828718671153e-08
+16:39:54.110          main:::  line  282  INFO   >>  Saving flux to the database
+16:39:54.112          main:::  line  307  INFO   >>  Reading L file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_WTCURVE.qdp`
+16:39:54.114          main:::  line  307  INFO   >>  Reading L file `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/L_PCCURVE_incbad.qdp`
+16:39:54.115  main::findPeak:  line  145  INFO   >>  Got maximum after `3` bins: 7398.63788810527
+16:39:54.115  main::findPeak:  line  145  INFO   >>  Got maximum after `4` bins: 7685.74332558899
+16:39:54.118          main:::  line  351  INFO   >>  Saving L to the database

@@ -1,0 +1,24 @@
+skip on
+mark off
+log x on
+log y on
+la pos y 3.5
+la rotate
+time off
+la t Swift/XRT data of GRB 211211A
+la par off
+csize 1.3
+lw 5
+
+la x Time since BAT trigger (s)
+
+la y Flux (0.3-10 keV) (erg cm\u-2\ds\u-1\d)
+la f cyan: WT settling - blue: WT - red: PC 
+r 48.5425905706162 14761621.3404 4.24504206e-14 8.9954411889483e-08
+time off
+col 5 on 1
+col 4 on 2
+col 13 on 3
+plot
+hard flux_nosys_incbad.ps/CPS
+q

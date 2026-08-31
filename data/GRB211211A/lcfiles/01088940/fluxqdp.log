@@ -1,0 +1,29 @@
+QDP file name: flux_plot_nosys_incbad.qdp
+PLT> /null
+PLT> @flux_nosys_incbad.pco
+ Illegal command.   At token = /NULL
+ Type HELP to get command list.
+!PLT> skip on
+!PLT> mark off
+!PLT> log x on
+!PLT> log y on
+!PLT> la pos y 3.5
+!PLT> la rotate
+!PLT> time off
+!PLT> la t Swift/XRT data of GRB 211211A
+!PLT> la par off
+!PLT> csize 1.3
+!PLT> lw 5
+!PLT>
+!PLT> la x Time since BAT trigger (s)
+!PLT>
+!PLT> la y Flux (0.3-10 keV) (erg cm\u-2\ds\u-1\d)
+!PLT> la f cyan: WT settling - blue: WT - red: PC
+!PLT> r 48.5425905706162 14761621.3404 4.24504206e-14 8.9954411889483e-08
+!PLT> time off
+!PLT> col 5 on 1
+!PLT> col 4 on 2
+!PLT> col 13 on 3
+!PLT> plot
+!PLT> hard flux_nosys_incbad.ps/CPS
+!PLT> q

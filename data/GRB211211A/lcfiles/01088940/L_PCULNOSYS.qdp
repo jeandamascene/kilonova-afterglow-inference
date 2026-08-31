@@ -1,0 +1,4 @@
+READ TERR 1 2 
+READ SERR 4
+!Time    	T_+ve   	T_-ve   	Luminosity    	Luminositypos 	Luminosityneg 	FracExp 	BGrate  	BGerr   	CorrFact	CtsInSrc	BGInSrc 	Exposure	Sigma   	SNR
+11231370.4812785	192.769673882052	-203.254668774083	0.645776176665553	0	0	1.0000	1.2720e-03	1.4222e-04	3.1824	4	0.5422	426.2410	2.9796	inf

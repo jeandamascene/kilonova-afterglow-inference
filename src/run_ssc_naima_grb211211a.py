@@ -394,19 +394,24 @@ def prepare_dataset() -> list:
         fluxes.append(e2dnde)
         flux_errs.append(e2dnde_err)
 
+    # UVOT excluded from SSC fit — early optical is NOT afterglow synchrotron.
+    # At t~0.043d the optical is dominated by reverse shock / prompt emission.
+    # This is a key result: SSC fits XRT+LAT but NOT optical → separate component.
+    # UVOT will be used as upper limits / separate analysis.
+    dataset = [xrt_table, lat_table]
     if energies_eV:
         uvot_table = Table({
             'energy':     np.array(energies_eV) * u.eV,
             'flux':       np.array(fluxes) * u.erg / u.cm**2 / u.s,
             'flux_error': np.array(flux_errs) * u.erg / u.cm**2 / u.s,
         })
-        uvot_table.meta['name'] = 'Swift UVOT'
-        dataset = [xrt_table, uvot_table, lat_table]
-        print(f"Dataset: {len(xrt_table)} XRT + {len(uvot_table)} UVOT + "
-              f"{len(lat_table)} LAT points")
-    else:
-        dataset = [xrt_table, lat_table]
+        uvot_table.meta['name'] = 'Swift UVOT (not fitted — separate component)'
         print(f"Dataset: {len(xrt_table)} XRT + {len(lat_table)} LAT points")
+        print(f"  UVOT ({len(uvot_table)} pts) excluded — optical from reverse shock")
+    else:
+        print(f"Dataset: {len(xrt_table)} XRT + {len(lat_table)} LAT points")
+    # Store UVOT separately for plotting only
+    _uvot_table = uvot_table if energies_eV else None
 
     print(f"Energy range: {xrt_table['energy'].min():.2e} -- "
           f"{lat_table['energy'].max():.2e}")
@@ -476,7 +481,7 @@ def main():
 
     if args.reload and Path(f"{chain_file}").exists():
         print(f"\nReloading chain from {chain_file}...")
-        sampler = naima.read_run(chain_file + "_chain.h5", grb211211a_ssc_model)
+        sampler = naima.read_run(str(OUTDIR / "grb211211a_epoch1_chain.h5"), grb211211a_ssc_model)
     else:
         print(f"\nRunning naima/emcee sampler...")
         print(f"  Output: {BASENAME}_chain.h5")
@@ -494,20 +499,27 @@ def main():
             threads    = THREADS,
         )
         naima.save_run(filename=BASENAME + "_chain.h5", sampler=sampler, clobber=True)
+        flatchain = sampler.flatchain
         naima.save_results_table(outname=BASENAME + "_results", sampler=sampler, overwrite=True)
         print("Sampling complete.")
 
     # ── Results ───────────────────────────────────────────────────────────────
+    # Handle both run_sampler and read_run return types
+    if hasattr(sampler, 'flatchain'):
+        flatchain = sampler.flatchain
+    else:
+        flatchain = sampler.chain.reshape(-1, sampler.chain.shape[-1])
+
     print("\nPosterior credible intervals (median ± 1σ):")
     param_names = ['log10_eta_e', 'log10_ebreak', 'alpha2',
                    'log10_ecut', 'log10_B']
     for i, (name, label) in enumerate(zip(param_names, LABELS)):
-        chain = sampler.flatchain[:, i]
+        chain = flatchain[:, i]
         lo, med, hi = np.percentile(chain, [16, 50, 84])
         print(f"  {name:18s} = {med:.4f} + {hi-med:.4f} - {med-lo:.4f}")
 
     # ── Save posterior samples for Stage 2 ───────────────────────────────────
-    posteriors = {name: sampler.flatchain[:, i]
+    posteriors = {name: flatchain[:, i]
                   for i, name in enumerate(param_names)}
     np.save(f"{BASENAME}_posteriors.npy", posteriors)
     print(f"\nPosterior samples saved to {BASENAME}_posteriors.npy")
@@ -518,59 +530,78 @@ def main():
     # Corner plot
     try:
         import corner
-        corner.corner(sampler.flatchain, labels=LABELS,
+        corner.corner(flatchain, labels=LABELS,
                       quantiles=[0.16, 0.5, 0.84], show_titles=True)
         plt.savefig(BASENAME + "_corner.pdf", bbox_inches='tight')
         plt.close()
         print("Corner plot saved.")
     except Exception as e:
         print(f"Corner plot skipped: {e}")
-    if False:  # disabled naima corner
-        pass
     plt.savefig(f"{BASENAME}_corner.pdf", bbox_inches='tight')
     plt.close()
 
-    # SED plot
-    fig, ax = plt.subplots(figsize=(9, 6))
-    # Plot data manually (naima.plot_data has matplotlib compat issue)
-    colors = ['steelblue', 'orange', 'green']
-    for ds, col in zip(dataset, colors):
-        ax.errorbar(
-            ds['energy'].to('eV').value,
-            ds['flux'].to('erg/(s cm^2)').value,
-            yerr=np.abs(ds['flux_error'].to('erg/(s cm^2)').value),
-            fmt='o', color=col, capsize=3, ms=6, zorder=5,
-            label=ds.meta.get('name', 'data'),
-        )
-
-    # Posterior predictive SED
+    # SED plot — posterior predictive
+    fig, ax = plt.subplots(figsize=(10, 6))
     e_plot = Table([np.logspace(2, 13, 200) * u.eV], names=['energy'])
-    a, b   = naima.plot._calc_CI(
-        sampler, confs=[1, 2], modelidx=0,
-        e_range=[1e2 * u.eV, 1e13 * u.eV]
-    )
-    xval   = a.value
-    ax.fill_between(xval, b[1][0].value, b[1][1].value,
-                    alpha=0.15, color='C0', label=r'$2\sigma$')
-    ax.fill_between(xval, b[0][0].value, b[0][1].value,
-                    alpha=0.35, color='C0', label=r'$1\sigma$')
 
-    # Best-fit components
-    pars_med = [np.median(sampler.flatchain[:, i]) for i in range(5)]
+    # Draw 100 posterior samples
+    idx = np.random.choice(len(flatchain), size=100, replace=False)
+    for i in idx:
+        pars_i = flatchain[i]
+        try:
+            sed_i = grb211211a_ssc_model(pars_i, e_plot)
+            ax.loglog(e_plot['energy'].value, sed_i[0].value,
+                      color='steelblue', alpha=0.05, lw=0.8)
+        except Exception:
+            continue
+
+    # Median model components
+    pars_med = [np.median(flatchain[:, i]) for i in range(5)]
     grb211211a_ssc_model(pars_med, e_plot)
+    ax.loglog(e_plot['energy'].value, (_synch_compGG + _ic_compGG).value,
+              'k-', lw=2, label='Total (median)')
     ax.loglog(e_plot['energy'].value, _synch_compGG.value,
               'b--', lw=1.5, label='Synchrotron')
     ax.loglog(e_plot['energy'].value, _ic_compGG.value,
               'r-.', lw=1.5, label='IC/SSC')
 
+    # Fitted data: XRT + LAT
+    fitted_colors = ['steelblue', 'green']
+    for ds, col in zip(dataset, fitted_colors):
+        ax.errorbar(
+            ds['energy'].to('eV').value,
+            ds['flux'].to('erg/(s cm^2)').value,
+            yerr=np.abs(ds['flux_error'].to('erg/(s cm^2)').value),
+            fmt='o', color=col, capsize=3, ms=7, zorder=5,
+            label=ds.meta.get('name', 'data'),
+        )
+
+    # UVOT: shown but NOT fitted — early optical is reverse shock
+    try:
+        if _uvot_table is not None:
+            ax.errorbar(
+                _uvot_table['energy'].to('eV').value,
+                _uvot_table['flux'].to('erg/(s cm^2)').value,
+                yerr=np.abs(_uvot_table['flux_error'].to('erg/(s cm^2)').value),
+                fmt='s', color='orange', capsize=3, ms=7, zorder=5,
+                alpha=0.8, label='Swift UVOT (not fitted — reverse shock?)',
+            )
+    except Exception:
+        pass
+
     ax.set_xlabel("Energy [eV]", fontsize=13)
     ax.set_ylabel(r"$E^2\,dN/dE$ [erg s$^{-1}$ cm$^{-2}$]", fontsize=13)
-    ax.set_title("GRB 211211A — Epoch 1 SSC fit (t ~ 0.043 days)", fontsize=12)
-    ax.set_xlim(1e0, 1e13)   # include UVOT (eV) through LAT (GeV)
-    ax.legend(fontsize=10)
+    ax.set_title(
+        "GRB 211211A — Epoch 1 SSC fit (t ~ 0.043 days)\n"
+        "Fitted: XRT + Fermi-LAT | Not fitted: UVOT (reverse shock?)",
+        fontsize=11)
+    ax.set_xlim(1e0, 1e13)
+    ax.set_ylim(1e-14, 1e-8)
+    ax.legend(fontsize=9, loc='lower right')
     plt.tight_layout()
-    plt.savefig(f"{BASENAME}_sed.pdf", bbox_inches='tight')
+    plt.savefig(BASENAME + "_sed.pdf", bbox_inches='tight')
     plt.close()
+    print("SED plot saved.")
 
     print(f"\nAll results saved to {OUTDIR}/")
     print("Next step: run Stage 2 KN inference using these posteriors.")

@@ -1,0 +1,15 @@
+
+
+*******
+
+16:18:08.860 UKSSDC::Logging::CREATE_LOG:  line  105  INFO   >>  /swift/srv/autoproc/bin/newcurve.pl called at `2025 Aug 12 at 15:18:08 UT` on `fireball.star.le.ac.uk`
+16:18:08.860          main:::  line  189  INFO   >>  Called at 2025 Aug 12 at 15:18:08 UT, with args -R :: 01088940 :: GRB 211211A :: wtstop=3000, host fireball.star.le.ac.uk
+16:18:08.866          main:::  line  267  INFO   >>  Getting the obsIDs
+16:18:09.101          main:::  line  275  INFO   >>  Will remove segment `991`.
+16:18:10.082 UKSSDC::Mission::GET_MISSION:  line   49  INFO   >>  Found mission `BAT` from eventDetails
+16:18:10.082          main:::  line  373  INFO   >>  Build the light curve with `/swift/srv/autoproc/bin/finit_reproc.sh xrt_lc_gen -s wtstop=3000 maxpcgap=864000 makeimg=no prods=/fbdata/autoproc/tmp/tmp_lc_prods_01088940_VqAAB work=/fbdata/autoproc/tmp/tmp_lc_newbuild_01088940_nPGGL web=0 clobber=yes obsdir=/tmp/tmp_lc_newbuild_01088940_obs_zOAOF name=GRB211211A mission=BAT stem=01088940`
+16:39:46.959          main:::  line  378  INFO   >>  Light curve built OK; create target directory `/swift/web/www/htdocs/xrt_curves/REPROC/01088940`
+16:39:47.650          main:::  line  385  INFO   >>  No `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/flux.txt` file found, seeing if I can create it.
+16:39:47.654          main:::  line  398  INFO   >>  Found cf=`4.36e-11` (ref=`<a href="/xrt_spectra/01088940">Automatic spectrum</a>`), written to `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/flux.txt`
+16:39:47.655          main:::  line  410  INFO   >>  Got `/swift/web/www/htdocs/xrt_curves/REPROC/01088940/flux.txt`, going to make flux LC
+16:39:53.262          main:::  line  423  INFO   >>  Called `makefluxlc.pl -R 4.36e-11 01088940 0`; exit status `0`

@@ -1,0 +1,47 @@
+skip on
+viewport 0.1 0.1 0.9 0.77
+lw 5
+csize 1.3
+col 5 on 1 2 3
+col 11 on 4 5 6
+col 2 on 7 8 9
+log x on
+time off
+
+win 1
+loc 0 0.6 1 1
+yplot 1,4,7
+la nx1 off
+log y on
+r y 0.00068154345 2269.49204308328
+r x 33.9798133994313 17713945.60848
+la pos y 3.5
+la y 1.51-10 keV c/s
+la rotate
+
+win 2
+loc 0 0.32 1 0.735
+yplot 2,5,8
+la nx1 off
+log y on
+r y 0.00068154345 2269.49204308328
+r x 33.9798133994313 17713945.60848
+la pos y 3.5
+la y 0.3-1.5 keV c/s
+
+win 3
+loc 0 0.05 1 0.455
+yplot 3,6,9
+r y 0.08757 3.9869651594888
+r x 33.9798133994313 17713945.60848
+la pos y 3.5
+la y Ratio
+
+win 1
+la f cyan: WT settling - blue: WT - red: PC
+la T Hardness ratio of GRB 211211A
+
+win all
+win 3
+la x Time since BAT trigger (s)
+plot

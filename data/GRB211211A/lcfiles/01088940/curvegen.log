@@ -1,0 +1,87 @@
+16:39:40.632 UKSSDC::Logging::CREATE_LOG:  line  105  INFO   >>  /swift/srv/autoproc/bin/curvegen_cpp.pl called at `2025 Aug 12 at 15:39:40 UT` on `fireball.star.le.ac.uk`
+16:39:40.632          main:::  line  215  INFO   >>  Called at 2025 Aug 12 at 15:39:40 UT with args: --mission=BAT :: -xy :: GRB 211211A :: 0.3 :: 10 :: 0.3 :: 1.5 :: 1.51 :: 10 :: 1 :: 01088940 :: 660921027.84
+16:39:40.633          main:::  line  253  INFO   >>  T0 = 660921027.84
+16:39:40.633          main:::  line  258  INFO   >>  Convert T0 to calendar date: `swifttime intime=660921027.84 insystem=m informat=s outsystem=UTC outformat=c`
+16:39:40.735          main:::  line  266  INFO   >>  Calendar 0 = `2021 Dec 11 at 13:09:59.602 UT`
+16:39:40.735          main:::  line  272  INFO   >>  Convert T0 to MJD: `swifttime intime=660921027.84 insystem=m informat=s outsystem=u outformat=m`
+16:39:40.857          main:::  line  288  INFO   >>  MJD0 = `59559.5486065092555`
+16:39:40.857          main:::  line  301  INFO   >>  Cannot find `{WTSLEW}CURVE_incbad.qdp` or `WTSLEWUL_incbad.qdp`
+16:39:40.857          main:::  line  301  INFO   >>  Cannot find `{WT}CURVE_incbad.qdp` or `WTUL_incbad.qdp`
+16:39:40.863          main:::  line  337  INFO   >>  Removing file `WTSLEWCURVE_incbad.qdp` as it is empty.
+16:39:40.868          main:::  line  337  INFO   >>  Removing file `WTCURVE_incbad.qdp` as it is empty.
+16:39:40.877          main:::  line  346  INFO   >>  Set first bin to `3519.350` from `PCCURVE_incbad.qdp`
+16:39:40.882          main:::  line  337  INFO   >>  Removing file `WTSLEWUL_incbad.qdp` as it is empty.
+16:39:40.886          main:::  line  337  INFO   >>  Removing file `WTUL_incbad.qdp` as it is empty.
+16:39:40.891          main:::  line  337  INFO   >>  Removing file `PCUL_incbad.qdp` as it is empty.
+16:39:40.899          main:::  line  346  INFO   >>  Set first bin to `69.9354154796797` from `WTSLEWCURVE.qdp`
+16:39:40.908          main:::  line  346  INFO   >>  Set first bin to `69.9354154796797` from `WTCURVE.qdp`
+16:39:40.918          main:::  line  346  INFO   >>  Set first bin to `69.9354154796797` from `PCCURVE.qdp`
+16:39:40.923          main:::  line  337  INFO   >>  Removing file `WTSLEWUL.qdp` as it is empty.
+16:39:40.928          main:::  line  337  INFO   >>  Removing file `WTUL.qdp` as it is empty.
+16:39:40.940          main:::  line  346  INFO   >>  Set first bin to `69.9354154796797` from `PCUL.qdp`
+16:39:40.940          main:::  line  363  INFO   >>  Converting first bin (660921097.775416) to MJD
+16:39:41.096          main:::  line  374  INFO   >>  MJD of first bin is 59559.5494159469454
+16:39:41.096          main:::  line  417  INFO   >>  Found `GRB-like (counts)` binning
+16:39:41.097          main:::  line  521  INFO   >>  WORKING ON SUFFIX `_incbad`
+16:39:41.097          main:::  line  560  INFO   >>  Working on mode `WTSLEW`
+16:39:41.097          main:::  line  584  INFO   >>  There are no incbad files for WTSLEW mode, so using the 'no bad' (suffix-free) files.
+16:39:41.097          main:::  line  592  INFO   >>  There is no file `WTSLEWUL.qdp`, reverting to non incbad
+16:39:41.097          main:::  line  602  INFO   >>  Ready to start mode `WTSLEW`, 'usedlast' = `0`
+16:39:41.097          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:41.097          main:::  line  621  INFO   >>  Creating file `WTSLEW_incbad.qdp`
+16:39:41.097          main:::  line  625  INFO   >>  Creating file `WTSLEWNOSYS_incbad.qdp`
+16:39:41.097          main:::  line  642  INFO   >>  Looking for infile `WTSLEWCURVE.qdp`
+16:39:41.098          main:::  line  642  INFO   >>  Looking for infile `WTSLEWUL.qdp`
+16:39:41.098          main:::  line  645  WARN   >>  Cannot find `WTSLEWUL.qdp`
+16:39:41.098          main:::  line  560  INFO   >>  Working on mode `WT`
+16:39:41.098          main:::  line  584  INFO   >>  There are no incbad files for WT mode, so using the 'no bad' (suffix-free) files.
+16:39:41.098          main:::  line  592  INFO   >>  There is no file `WTUL.qdp`, reverting to non incbad
+16:39:41.098          main:::  line  602  INFO   >>  Ready to start mode `WT`, 'usedlast' = `1`
+16:39:41.099          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:41.099          main:::  line  621  INFO   >>  Creating file `WT_incbad.qdp`
+16:39:41.099          main:::  line  625  INFO   >>  Creating file `WTNOSYS_incbad.qdp`
+16:39:41.099          main:::  line  642  INFO   >>  Looking for infile `WTCURVE.qdp`
+16:39:41.104          main:::  line  636  WARN   >>  Skipping WT UL
+16:39:41.105          main:::  line  560  INFO   >>  Working on mode `PC`
+16:39:41.105          main:::  line  592  INFO   >>  There is no file `PCUL_incbad.qdp`, reverting to non incbad
+16:39:41.105          main:::  line  602  INFO   >>  Ready to start mode `PC`, 'usedlast' = `1`
+16:39:41.105          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:41.105          main:::  line  621  INFO   >>  Creating file `PC_incbad.qdp`
+16:39:41.105          main:::  line  625  INFO   >>  Creating file `PCNOSYS_incbad.qdp`
+16:39:41.105          main:::  line  642  INFO   >>  Looking for infile `PCCURVE_incbad.qdp`
+16:39:41.106          main:::  line  642  INFO   >>  Looking for infile `PCUL_incbad.qdp`
+16:39:41.106          main:::  line  645  WARN   >>  Cannot find `PCUL_incbad.qdp`
+16:39:41.108          main:::  line 1145  INFO   >>  Calling QDP to make `curve_incbad.ps` from `TEMP_plotme_incbad.qdp`
+16:39:41.387          main:::  line 1145  INFO   >>  Calling QDP to make `curve2_incbad.ps` from `TEMP_plotme2_incbad.qdp`
+16:39:41.706          main:::  line 1145  INFO   >>  Calling QDP to make `curve_nosys_incbad.ps` from `TEMP_plotme_nosys_incbad.qdp`
+16:39:42.036          main:::  line 1145  INFO   >>  Calling QDP to make `curve2_nosys_incbad.ps` from `TEMP_plotme2_nosys_incbad.qdp`
+16:39:42.394          main:::  line 1278  INFO   >>  Skipping `WTSLEW` - no data
+16:39:42.394          main:::  line 1278  INFO   >>  Skipping `WT` - no data
+16:39:43.016          main:::  line  521  INFO   >>  WORKING ON SUFFIX ``
+16:39:43.016          main:::  line  560  INFO   >>  Working on mode `WTSLEW`
+16:39:43.016          main:::  line  602  INFO   >>  Ready to start mode `WTSLEW`, 'usedlast' = `0`
+16:39:43.016          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:43.017          main:::  line  621  INFO   >>  Creating file `WTSLEW.qdp`
+16:39:43.017          main:::  line  625  INFO   >>  Creating file `WTSLEWNOSYS.qdp`
+16:39:43.017          main:::  line  642  INFO   >>  Looking for infile `WTSLEWCURVE.qdp`
+16:39:43.017          main:::  line  642  INFO   >>  Looking for infile `WTSLEWUL.qdp`
+16:39:43.017          main:::  line  645  WARN   >>  Cannot find `WTSLEWUL.qdp`
+16:39:43.017          main:::  line  560  INFO   >>  Working on mode `WT`
+16:39:43.017          main:::  line  602  INFO   >>  Ready to start mode `WT`, 'usedlast' = `1`
+16:39:43.018          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:43.018          main:::  line  621  INFO   >>  Creating file `WT.qdp`
+16:39:43.018          main:::  line  625  INFO   >>  Creating file `WTNOSYS.qdp`
+16:39:43.018          main:::  line  642  INFO   >>  Looking for infile `WTCURVE.qdp`
+16:39:43.023          main:::  line  636  WARN   >>  Skipping WT UL
+16:39:43.024          main:::  line  560  INFO   >>  Working on mode `PC`
+16:39:43.024          main:::  line  602  INFO   >>  Ready to start mode `PC`, 'usedlast' = `1`
+16:39:43.024          main:::  line  615  INFO   >>  Creating per-mode output files
+16:39:43.024          main:::  line  621  INFO   >>  Creating file `PC.qdp`
+16:39:43.024          main:::  line  625  INFO   >>  Creating file `PCNOSYS.qdp`
+16:39:43.024          main:::  line  642  INFO   >>  Looking for infile `PCCURVE.qdp`
+16:39:43.025          main:::  line  642  INFO   >>  Looking for infile `PCUL.qdp`
+16:39:43.031          main:::  line 1145  INFO   >>  Calling QDP to make `curve.ps` from `TEMP_plotme.qdp`
+16:39:43.319          main:::  line 1145  INFO   >>  Calling QDP to make `curve2.ps` from `TEMP_plotme2.qdp`
+16:39:43.647          main:::  line 1145  INFO   >>  Calling QDP to make `curve_nosys.ps` from `TEMP_plotme_nosys.qdp`
+16:39:44.026          main:::  line 1145  INFO   >>  Calling QDP to make `curve2_nosys.ps` from `TEMP_plotme2_nosys.qdp`
+16:39:45.069          main:::  line 1616  WARN   >>  NO flux.txt found: `/fbdata/autoproc/tmp/tmp_lc_newbuild_01088940_nPGGL`

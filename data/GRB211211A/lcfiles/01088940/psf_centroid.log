@@ -1,0 +1,96 @@
+++ntroid/createLog.cpp::      createLog:  line   51  INFO   >>  Created FileAppender: 'psf_centroid.log', level info
+++centroid_expomap.cpp::           main:  line  561  WARN   >>  PSF_centroid called
+++centroid_expomap.cpp::           main:  line  718  INFO   >>  Using SNR: Lo=2, Norm: 3 and high: 10
+++centroid_expomap.cpp::           main:  line  782  INFO   >>  Opening PSF coefficients file: swxpsf20010101v006_rc2.fits
+++centroid_expomap.cpp::           main:  line  886  INFO   >>  Setting threshholds to 3  / 2.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (526.08,322.32) with boxsize 11 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (458.062,391.5) with boxsize 15 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (408.24,551.16) with boxsize 15 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (305.965,702.07) with boxsize 15 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (498.917,368.188) with boxsize 17 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (420.088,398.684) with boxsize 17 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (544.057,572.114) with boxsize 17 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (492.892,233.108) with boxsize 21 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (448.329,502.057) with boxsize 21 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (502.758,634.303) with boxsize 21 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line  879  INFO   >>   Source at (524.569,705.155) with boxsize 21 is a new source.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line 1178  INFO   >>  Detect found 9 sources.
+++ouble/CellDetect.cpp:: Merge_Excesses:  line 1190  INFO   >>  Final source list : 
+( 526.08, 322.32 ) ns = 37.968 (+/- 10.325)  nb = 0.73833 (+/- 1.0826)  s_n = 3.6775 boxsize =   11
+( 456.95, 390.26 ) ns = 36.096 (+/- 9.4991)  nb = 9.6181 (+/- 1.7412)  s_n = 3.7999 boxsize =   19
+( 408.19, 550.85 ) ns = 33.314 (+/- 9.8079)  nb = 0.71214 (+/- 1.0334)  s_n = 3.3967 boxsize =   11
+( 305.95, 702.16 ) ns = 114.22 (+/- 14.840)  nb = 2.1621 (+/- 1.4531)  s_n = 7.6969 boxsize =   15
+( 498.74, 369.11 ) ns = 52.092 (+/- 10.904)  nb = 11.597 (+/- 1.9346)  s_n = 4.7773 boxsize =   20
+( 420.09, 398.68 ) ns = 69.176 (+/- 11.827)  nb = 3.9421 (+/- 1.4561)  s_n = 5.8491 boxsize =   17
+( 544.14, 572.36 ) ns = 37.302 (+/- 9.6925)  nb = 6.3896 (+/- 1.5697)  s_n = 3.8485 boxsize =   17
+( 448.71, 502.23 ) ns = 2118.8 (+/- 54.349)  nb = 13.291 (+/- 4.2390)  s_n = 38.985 boxsize =   20
+( 524.22, 706.52 ) ns = 55.898 (+/- 11.249)  nb = 12.499 (+/- 1.9956)  s_n = 4.9693 boxsize =   21
+
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 1
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (448.712,502.226) with snr= 38.9852 hence radius 20
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=1210.17
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  557  INFO   >>  Calling fit with pile up, attempt 1, input position (448.712,502.226) with snr= 38.9852 hence radius 20
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=1169.38
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  632  INFO   >>  Accepting the piled up fit, as Lpup=17.333 compared to thresh 10
+++ap/PSF_Fit_Image.cpp::      FitSource:  line  255  WARN   >>  The errors created on the fit were not valid, but an alternative position may be apt, trying again
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (448.861,502.407) with snr= 38.9852 hence radius 20
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=1207.06
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  557  INFO   >>  Calling fit with pile up, attempt 1, input position (448.861,502.407) with snr= 38.9852 hence radius 20
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=1166.38
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  632  INFO   >>  Accepting the piled up fit, as Lpup=17.2814 compared to thresh 10
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -4.2018 with cstat 6805.36
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 448.86, 502.406) with errors (0.000190735, 0.000190735)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 2
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (305.954,702.161) with snr= 7.69695 hence radius 15
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=250.565
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  557  INFO   >>  Calling fit with pile up, attempt 1, input position (305.954,702.161) with snr= 7.69695 hence radius 15
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=248.36
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.11694 with cstat 510.287
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 305.731, 702.027) with errors (0.345165, 0.324128)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 3
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (420.088,398.684) with snr= 5.84912 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=193.243
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  557  INFO   >>  Calling fit with pile up, attempt 1, input position (420.088,398.684) with snr= 5.84912 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=189.348
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.28719 with cstat 277.711
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 419.88, 398.687) with errors (0.514218, 0.460969)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 4
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (524.224,706.517) with snr= 4.96926 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=322.155
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.23244 with cstat 249.429
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 524.557, 707.575) with errors (0.848433, 0.777914)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 5
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (498.741,369.111) with snr= 4.7773 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=221.572
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.32176 with cstat 263.182
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 498.433, 369.115) with errors (0.486456, 0.520939)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 6
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (544.139,572.361) with snr= 3.84852 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=173.905
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.4744 with cstat 215.512
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 544.955, 572.497) with errors (0.562726, 0.604265)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 7
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (456.947,390.263) with snr= 3.79989 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=194.191
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.46133 with cstat 208.638
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 458.489, 390.111) with errors (0.592667, 0.673323)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 8
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (526.08,322.32) with snr= 3.67745 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=117.416
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.58957 with cstat 170.525
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 525.795, 321.889) with errors (0.645664, 0.676063)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  140  INFO   >>  Call fit for source 9
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  512  INFO   >>  Calling  nopup fit, attempt 1, input position (408.192,550.846) with snr= 3.39668 hence radius 12
+++pomap/PSF_Fit_XY.cpp::   Fit_Centroid:  line  255  INFO   >>  For PSF: swxpsf20010101v006_rc2.fits fVal=139.591
+++pomap/PSF_Fit_XY.cpp::C_Stat_Flat_Source:  line  746  INFO   >>   Best-fitting flat value is -5.55858 with cstat 166.374
+++ap/PSF_Fit_Image.cpp::      FitRegion:  line  812  INFO   >>  Best Centroid position: ( 408.092, 551.175) with errors (0.678065, 0.840331)
+++ap/PSF_Fit_Image.cpp::     FitSources:  line  142  INFO   >>  Fit complete. Valid: 1
+++centroid_expomap.cpp::           main:  line 1588  INFO   >>  Completed

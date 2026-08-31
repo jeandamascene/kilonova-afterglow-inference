@@ -21,15 +21,14 @@ def run_inference(
     Path(outdir).mkdir(parents=True, exist_ok=True)
 
     result = bilby.run_sampler(
-        likelihood        = likelihood,
-        priors            = priors,
-        sampler           = sampler,
-        nlive             = nlive,
-        outdir            = outdir,
-        label             = label,
-        clean             = clean,
-        save              = True,
-        sample            = "rwalk",   # more robust than act-walk
+        likelihood = likelihood,
+        priors     = priors,
+        sampler    = sampler,
+        nlive      = nlive,
+        outdir     = outdir,
+        label      = label,
+        clean      = clean,
+        save       = True,
         **sampler_kwargs,
     )
     return result
