@@ -141,6 +141,22 @@ class SSCLikelihood(Likelihood):
 
     def log_likelihood(self) -> float:
         """Gaussian log-likelihood on SED values."""
+        # Guard against None parameters — bilby v3 initialises with None
+        if any(v is None for v in self.parameters.values()):
+            return -np.inf
+
+        log10_ebreak = self.parameters.get('log10_ebreak', -99)
+        log10_ecut   = self.parameters.get('log10_ecut',   -99)
+        log10_B      = self.parameters.get('log10_B',      -99)
+        log10_eta_e  = self.parameters.get('log10_eta_e',  -99)
+        alpha2       = self.parameters.get('alpha2',          0)
+
+        # Physical constraints — reject unphysical combinations immediately
+        if log10_ecut <= log10_ebreak:    return -np.inf  # ecut > ebreak
+        if log10_ecut - log10_ebreak > 6: return -np.inf  # max 6 decades
+        if alpha2 <= 1.0:                 return -np.inf  # cooling break
+        if log10_eta_e > 0:               return -np.inf  # eta_e <= 1
+
         try:
             sed_model = self._evaluate_model(self.parameters)
         except Exception:
@@ -287,44 +303,45 @@ def ssc_priors_grb211211a() -> bilby.core.prior.PriorDict:
     """
     Physically motivated priors for GRB 211211A SSC inference.
 
-    GRB 211211A is a short GRB (with kilonova) at z=0.076.
-    Prior ranges reflect short GRB afterglow microphysics:
-    lower Eiso, lower density than long GRBs.
+    Tighter ranges based on GRB 190829A Night 1 best-fit as reference.
+    All parameters in log10 space — priors are Uniform on log10 values.
+
+    Parameter ranges:
+        log10_eta_e  : [-2,  0]   eta_e in [0.01, 1]
+        log10_ebreak : [-3,  0]   E_break in [0.001, 1] TeV
+        alpha2       : [ 2,  4]   electron spectral index
+        log10_ecut   : [ 0,  3]   E_cut in [1, 1000] TeV
+        log10_B      : [-2,  1]   B in [0.01, 10] Gauss
 
     Returns
     -------
     PriorDict
     """
-    from bilby.core.prior import PriorDict, LogUniform, Uniform
+    from bilby.core.prior import PriorDict, Uniform
 
     return PriorDict({
-        # Electron energy fraction: wide log-uniform
-        'log10_eta_e': LogUniform(
-            minimum=1e-4, maximum=1.0,
+        'log10_eta_e': Uniform(
+            minimum=-2.0, maximum=0.0,
             name='log10_eta_e',
             latex_label=r'$\log_{10}(\eta_e)$',
         ),
-        # Break energy [TeV]: log-uniform
-        'log10_ebreak': LogUniform(
-            minimum=1e-7, maximum=1e-1,
+        'log10_ebreak': Uniform(
+            minimum=-3.0, maximum=0.0,
             name='log10_ebreak',
             latex_label=r'$\log_{10}(E_{\rm br}/{\rm TeV})$',
         ),
-        # High-energy electron index: uniform
         'alpha2': Uniform(
-            minimum=2.0, maximum=5.0,
+            minimum=2.0, maximum=4.0,
             name='alpha2',
             latex_label=r'$\alpha_2$',
         ),
-        # Cutoff energy [TeV]: log-uniform above break
-        'log10_ecut': LogUniform(
-            minimum=1e-2, maximum=1e4,
+        'log10_ecut': Uniform(
+            minimum=0.0, maximum=3.0,
             name='log10_ecut',
             latex_label=r'$\log_{10}(E_{\rm cut}/{\rm TeV})$',
         ),
-        # Magnetic field [G]: log-uniform
-        'log10_B': LogUniform(
-            minimum=1e-4, maximum=1e2,
+        'log10_B': Uniform(
+            minimum=-2.0, maximum=1.0,
             name='log10_B',
             latex_label=r'$\log_{10}(B/{\rm G})$',
         ),
